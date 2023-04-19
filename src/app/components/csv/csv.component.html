@@ -1,0 +1,26 @@
+<html>
+
+
+
+<body>
+  <div class="container">
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="form-group">
+      &nbsp; <label for="ad_simage">Upload CSV</label><span class="mandatory">*</span>
+      <input type="file" class="form-control" (change)="selectFile($event)" id="user_csv" name="user_csv"
+        accept=".csv" />
+      <br />
+
+      <button class="btn btn-primary" (click)="upload()">Save File</button>&nbsp; &nbsp;
+
+      <button class="btn btn-danger" input type="reset">Clear</button>
+    </div>
+  </div>
+
+</body>
+
+</html>
+<app-sidebar></app-sidebar>

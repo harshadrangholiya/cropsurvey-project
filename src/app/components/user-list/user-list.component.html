@@ -1,0 +1,59 @@
+<br>
+<br>
+<br>
+<br>
+<html>
+
+<body>
+    <div class="container">
+        <button class="btn btn-info" style="margin-left: 10px"><a routerLink="register">Add User</a></button>
+        <br>
+        <br>
+
+        <input class="form-control" name="search" [(ngModel)]="searchText" type="text" placeholder="Search..">
+       
+        <br>
+        <div class="table-responsive">
+            <table id="myTable" class="display table" width="100%">
+                <thead>
+                    <tr class="table-dark">
+                        <th>Name</th>
+                        <th>contactNumber</th>
+                        <th>email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users| filter:searchText| paginate : {
+                        itemsPerPage: tableSize,
+                        currentPage:page, 
+                        totalItems:count}; 
+                        let i=index" class="table-info">
+                        <td> {{ user.name }} </td>
+                        <td> {{ user.contactNumber }} </td>
+                        <td> {{ user.email }} </td>
+                        <td>
+                            <button class="btn btn-success" (click)="activeUser(user.id)"
+                                [disabled]="user.status === 'true'">Active</button> &nbsp;&nbsp;
+                            <button class="btn btn-warning" (click)="inActiveUser(user.id)"
+                                [disabled]="user.status != 'true'">In-Active</button> &nbsp;&nbsp;
+                            <!-- <input type="checkbox" data-toggle="switchbutton" checked data-onlabel="Active"
+                                data-offlabel="DeActive" data-onstyle="success" data-offstyle="danger">&nbsp;&nbsp; -->
+                            <button (click)="deleteUser(user.id)" class="btn btn-danger">Delete</button> &nbsp;&nbsp;
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="footer">
+                <div class="d-flex justify-content-center">
+                    <pagination-controls previousLabel="Prev" nextLabel="Next"
+                        (pageChange)="onTableDataChange($event)"></pagination-controls>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<app-sidebar></app-sidebar>

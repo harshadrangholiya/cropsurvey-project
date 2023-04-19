@@ -1,0 +1,123 @@
+
+<link rel="stylesheet" href="cropdata.component.css">
+<style>
+    .note {
+        text-align: center;
+        height: 50px;
+        background: #1f94a9;
+        color: #d1d4d4;
+        font-weight: bold;
+        line-height: 100px;
+    }
+
+    .form-content {
+        padding: 5%;
+        border: 3px solid #ced4da;
+        margin-bottom: 8%;
+    }
+
+    .form-control {
+        border-radius: 1.5rem;
+    }
+
+    .btnSubmit {
+        border: none;
+        border-radius: 1.5rem;
+        padding: 1%;
+        width: 10%;
+        cursor: pointer;
+        background: #0062cc;
+        color: #fff;
+    }
+</style>
+<div class="card-body">
+    <form #cropForm="ngForm" (ngSubmit)="cropForm.form.valid && onSubmit()">
+        <div class="form-content">
+            <div class="row">
+                <div class="col-md-10">
+                    <!-- <div class="form-group"><label><strong>ID</strong></label>
+                <input type="text" class="form-control" placeholder="Id " value="" />
+            </div> -->
+                    <br>
+
+                    <div class="form-group"><label class="form-label" for="form3Example2"><strong>Surveyor name </strong></label>
+                        <input required="false" type="text" class="form-control" [(ngModel)] ="survey.name" 
+                            [ngModelOptions]="{standalone: true}" placeholder="Surveyor name *">
+                    </div>
+
+                    <br>
+                    <div class="form-group"><label  class="form-label" for="form3Example2"><strong>Status </strong></label>
+                        <input required="false"  type="text" class="form-control" [(ngModel)]="survey.status"
+                            [ngModelOptions]="{standalone: true}" placeholder="Status " value="" />
+                    </div>
+
+                    <br>
+                    <div class="form-group"><label  class="form-label" for="form3Example2"><strong>Remark </strong></label>
+                        <input required="false"  type="text" class="form-control" [(ngModel)]="survey.remarks"
+                            [ngModelOptions]="{standalone: true}" placeholder="Remark " value="" />
+                    </div>
+
+                    <br>
+                    <div class="form-group"><label  class="form-label" for="form3Example2"><strong>State </strong></label>
+                        <input required="false"  type="text" class="form-control" [(ngModel)]="survey.state"
+                            [ngModelOptions]="{standalone: true}" placeholder="State " value="" />
+                    </div>
+
+                    <br>
+                    <div class="form-group"><label  class="form-label" for="form3Example2"><strong>District </strong></label>
+                        <input required="false"  type="text" class="form-control" [(ngModel)]="survey.district"
+                            [ngModelOptions]="{standalone: true}" placeholder="District " value="" />
+                    </div>
+
+                    <br>
+                    <div class="form-group"><label  class="form-label" for="form3Example2"><strong>Taluka </strong></label>
+                        <input required="false"  type="text" class="form-control" [(ngModel)]="survey.taluka"
+                            [ngModelOptions]="{standalone: true}" placeholder="Taluka" value="" />
+                    </div>
+
+                    <br>
+                    <div class="form-group"><label  class="form-label" for="form3Example2"><strong>Village </strong></label>
+                        <input required="false"  type="text" class="form-control" [(ngModel)]="survey.village"
+                            [ngModelOptions]="{standalone: true}" placeholder="Village " value="" />
+                    </div>
+
+                    <br>
+                    <div class="form-group"><label  class="form-label" for="form3Example2"><strong>Current latitude </strong></label>
+                        <input required="false"  type="number" class="form-control" [(ngModel)]="survey.cu_latitude"
+                            [ngModelOptions]="{standalone: true}" placeholder="Current latitude " value="" />
+                    </div>
+
+                    <br>
+                    <div class="form-group"><label class="form-label" for="form3Example2"><strong>current Longitude </strong></label>
+                        <input required="false"  type="number" class="form-control" [(ngModel)]="survey.cu_longitude"
+                            [ngModelOptions]="{standalone: true}" placeholder="Current Longitude " value="" />
+                    </div>
+
+                    <br>
+                    <div class="form-group"><label class="form-label" for="form3Example2"><strong>Surveyed latitude </strong></label>
+                        <input required="false"  type="number" class="form-control" [(ngModel)]="survey.su_latitude"
+                            [ngModelOptions]="{standalone: true}" placeholder="Surveyed latitude " value="" />
+                    </div>
+
+                    <br>
+                    <div class="form-group"><label class="form-label" for="form3Example2"><strong>Surveyed Longitude </strong></label>
+                        <input required="false"  type="number" class="form-control" [(ngModel)]="survey.su_longitude"
+                            [ngModelOptions]="{standalone: true}" placeholder="Surveyed Longitude " value="" />
+                    </div>
+
+                    <br>
+                    <div class="form-group"><label class="form-label" for="form3Example2"><strong>Date </strong></label>
+                        <input required="false"  type="date" class="form-control" [(ngModel)]="survey.date"
+                            [ngModelOptions]="{standalone: true}" placeholder="Date " value="" />
+                    </div>
+
+                    <br>
+                    <div class="text-center">
+                    <button type="button" class="btnSubmit" (click)="onSubmit()">Submit</button>
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
